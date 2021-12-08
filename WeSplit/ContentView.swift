@@ -3,8 +3,9 @@ import SwiftUI
 struct ContentView: View {
     @State private var checkAmount = 0.0
     @State private var numberOfPeople = 1
-    @State private var tipPercentage = 10
+    @State private var tipPercentage = 0
     @FocusState private var amountIsFocused: Bool
+    
     
     
     var currency: FloatingPointFormatStyle<Double>.Currency {
@@ -59,6 +60,7 @@ struct ContentView: View {
             
             Section {
                 Text(grandTotal, format: currency)
+                .foregroundColor((tipPercentage == 0) ? .red : .black)
             } header: {
                 Text("Amount with tips")
             }
